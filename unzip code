@@ -1,0 +1,57 @@
+//
+//  ViewController.swift
+//  Layout 2
+//
+//  Created by Mikhail Lukianov
+//
+
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let view1 = creatView(color: .systemRed, cornerRadius: 50)
+        let view2 = creatView(color: .systemRed, cornerRadius: 50)
+        let view3 = creatView(color: .systemRed, cornerRadius: 25)
+        let view4 = creatView(color: .systemRed, cornerRadius: 25)
+        let view5 = creatView(color: .systemRed, cornerRadius: 25)
+        setWithHeightTranslate(subview: view1, width: 100, height: 100)
+        
+        view1.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        view1.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        
+    setWithHeightTranslate(subview: view2, width: 50, height: 50)
+        view2.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        view2.rightAnchor.constraint(equalTo: view1.leftAnchor, constant: -10).isActive = true
+        
+    setWithHeightTranslate(subview: view3, width: 50, height: 50)
+        view3.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        view3.bottomAnchor.constraint(equalTo: view1.topAnchor, constant: -10).isActive = true
+        
+    setWithHeightTranslate(subview: view4, width: 50, height: 50)
+        view4.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        view4.leftAnchor.constraint(equalTo: view1.rightAnchor, constant: 10).isActive = true
+        
+    setWithHeightTranslate(subview: view5, width: 50, height: 50)
+            view5.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            view5.topAnchor.constraint(equalTo: view1.bottomAnchor, constant: 10).isActive = true
+        
+    }
+
+    func setWithHeightTranslate(subview:UIView, width:CGFloat, height:CGFloat) {
+    subview.translatesAutoresizingMaskIntoConstraints = false
+        subview.widthAnchor.constraint(equalToConstant: width).isActive = true
+        subview.heightAnchor.constraint(equalToConstant: height).isActive = true
+    }
+    func creatView(color:UIColor, cornerRadius:CGFloat)->UIView {
+        let cview = UIView()
+        view.addSubview(cview)
+        cview.backgroundColor = .systemRed
+        cview.layer.cornerRadius = cornerRadius
+        return cview
+    }
+
+}
+
